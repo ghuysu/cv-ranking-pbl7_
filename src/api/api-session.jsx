@@ -70,7 +70,7 @@ export const addSession = async (resumes, jd, sessionName) => {
       };
     }
   };
-  const API_RANKING_URL = 'http://103.90.226.249:8001/api/rank';
+  const API_RANKING_URL = 'https://ea07-103-90-226-249.ngrok-free.app/api/rank';
 
   export const getRanking = async (topResume, resumes, jd) => {
     try {
@@ -83,7 +83,8 @@ export const addSession = async (resumes, jd, sessionName) => {
       const response = await axios.post(API_RANKING_URL, payload, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': getAccessToken(), // Thêm token ở đây
+          'Authorization': getAccessToken(), // Thêm token ở đây,
+          'ngrok-skip-browser-warning': 'true',
         },
       });
   
