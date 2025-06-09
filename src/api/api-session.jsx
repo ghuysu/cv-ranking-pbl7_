@@ -70,7 +70,7 @@ export const addSession = async (resumes, jd, sessionName) => {
       };
     }
   };
-  const API_RANKING_URL = 'https://ea07-103-90-226-249.ngrok-free.app/api/rank';
+  const API_RANKING_URL = 'https://f81f-103-90-226-249.ngrok-free.app/api/rank';
 
   export const getRanking = async (topResume, resumes, jd) => {
     try {

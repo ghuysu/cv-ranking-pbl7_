@@ -66,6 +66,7 @@ export default function UploadPage() {
         setJdFile({ name: file.name, file });
       }
     };
+    
     const handleSubmit = async () => {
       if (!sessionName.trim()) {
         setSnackbarMessage("Please enter a session name.");
@@ -84,13 +85,15 @@ export default function UploadPage() {
     
       const result = await addSession(resumes, jdFile, sessionName);
       setIsLoading(false); // Tắt loading
-    
+      console.log(result.data.metadata.sessionData._id);
+      
       if (result.success) {
+        
         setSnackbarMessage("Session added successfully!");
         setSnackbarSeverity("success");
         setOpenSnackbar(true);
         setTimeout(() => {
-          navigate("/home");
+          navigate(`/edit/${result.data.metadata.sessionData._id}`);
         }, 800);
       } else {
         setSnackbarMessage(result.message || "Something went wrong.");
@@ -258,7 +261,7 @@ export default function UploadPage() {
                 <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <Typography
                     variant="h6"
-                    sx={{ fontWeight: 400, fontSize: 15, fontFamily: "Roboto" }}
+                    sx={{ fontWeight: 400, fontSize: 15, fontFamily: "Roboto", color: "black" }}
                   >
                     Job Description
                   </Typography>
@@ -281,19 +284,20 @@ export default function UploadPage() {
 
                 {/* Hiển thị file JD nếu có */}
                 {jdFile && (
-  <Box
-    sx={{
-      mt: 2,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      backgroundColor: '#fff',
-      padding: '8px 12px',
-      borderRadius: '4px',
-      border: '1px solid #ccc',
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    }}
-  >
+                <Box
+                  sx={{
+                    mt: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    backgroundColor: '#fff',
+                    padding: '8px 12px',
+                    borderRadius: '4px',
+                    border: '1px solid #ccc',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    color: "black"
+                  }}
+                >
     <Typography sx={{ fontSize: 14 }}>{jdFile.name}</Typography>
 
     <Box sx={{ display: 'flex', gap: 1 }}>

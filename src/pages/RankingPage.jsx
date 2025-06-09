@@ -225,7 +225,7 @@ const [dialogTitle, setDialogTitle] = useState("");
                 <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <Typography
                     variant="h6"
-                    sx={{ fontWeight: 400, fontSize: 15, fontFamily: "Roboto" }}
+                    sx={{ fontWeight: 400, fontSize: 15, fontFamily: "Roboto", color: "black" }}
                   >
                     Job Description
                   </Typography>
@@ -245,6 +245,7 @@ const [dialogTitle, setDialogTitle] = useState("");
                       borderRadius: '4px',
                       border: '1px solid #ccc',
                       boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                      color: "black"
                     }}
                   >
                     <Typography sx={{ fontSize: 14 }}>{jdFile.fileName}</Typography>
